@@ -1,20 +1,19 @@
 import React from 'react';
-import { Card, Form, Button } from 'semantic-ui-react'
+import { Card, Form } from 'semantic-ui-react'
 
 const UrlCard = () => (
     <Card fluid>
-        <Card.Content>
+        <Card.Content className="json-loader__card-title">
             <Card.Header>
                 Load JSON from URL
             </Card.Header>
         </Card.Content>
         <Card.Content>
             <Form size="large">
-                <Form.Field>
-                    <label>URL</label>
-                    <input />
-                </Form.Field>
-                <Button primary fluid>Fetch</Button>
+                <Form.Group>
+                    <Form.Input placeholder='URL' width={12} />
+                    <Form.Button content='Fetch' width={4} fluid primary />
+                </Form.Group>
             </Form>
         </Card.Content>
     </Card>
