@@ -1,15 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
 import { Container } from 'semantic-ui-react'
 import JsonLoader from '../JsonLoader';
+import Editor from '../Editor';
+import { selectLoaded } from '../../store/selectors/saved';
 
-class App extends Component {
-    render() {
-        return (
-            <Container>
-                <JsonLoader />
-            </Container>
-        );
-    }
-}
+const App = ({ loaded}) => (
+    <Container>
+        {!loaded && <JsonLoader />}
+        {loaded && <Editor />}
+    </Container>
+);
 
-export default App;
+const mapStateToProps = state => ({
+    loaded: selectLoaded(state),
+});
+
+export default connect(mapStateToProps)(App);
