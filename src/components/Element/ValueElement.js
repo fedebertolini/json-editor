@@ -1,7 +1,9 @@
 import React from 'react';
 
 const ValueElement = ({ data, path }) => (
-    <div>{data}</div>
+    <div>
+        {`${path[path.length - 1]} : ${data}`}
+    </div>
 );
 
 export default ValueElement;
