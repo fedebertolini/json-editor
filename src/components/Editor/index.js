@@ -1,21 +1,15 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { Grid } from 'semantic-ui-react';
-import { selectData } from '../../store/selectors/saved';
+import Element from '../Element';
 
 const Editor = ({ data }) => (
     <Grid padded centered stretched>
         <Grid.Row>
             <Grid.Column>
-                {JSON.stringify(data)}
+                <Element path={[]} />
             </Grid.Column>
         </Grid.Row>
     </Grid>
 );
 
-
-const mapStateToProps = state => ({
-    data: selectData(state),
-});
-
-export default connect(mapStateToProps)(Editor);
+export default Editor;
