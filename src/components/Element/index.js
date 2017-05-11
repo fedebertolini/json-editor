@@ -5,6 +5,7 @@ import { selectData } from '../../store/selectors/saved';
 import ArrayElement from './ArrayElement';
 import ValueElement from './ValueElement';
 import ObjectElement from './ObjectElement';
+import './styles.css';
 
 const Element = ({ path, data }) => {
     if (isImmutable(data)) {

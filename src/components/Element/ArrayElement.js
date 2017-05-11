@@ -1,5 +1,4 @@
 import React from 'react';
-import { Accordion, List } from 'semantic-ui-react';
 import Element from '.';
 
 const getPropertyName = (path, arraySize) => {
@@ -10,19 +9,25 @@ const getPropertyName = (path, arraySize) => {
 }
 
 const ArrayElement = ({ data, path }) => {
-
+    const isRoot = path.length === 0;
     const elements = data.toArray().map((value, index) => (
-        <List.Item key={index}>
-            <Element path={path.concat([index])} />
-        </List.Item>
+        <Element key={index} path={path.concat([index])} />
     ));
 
-    const panels = [{
-        title: getPropertyName(path, data.size),
-        content: <List>{elements}</List>,
-    }];
-
-    return <Accordion panels={panels} />;
+    const list = (
+        <div>
+            <div>{getPropertyName(path, data.size)}</div>
+            <ul className="element__list">
+                {elements}
+            </ul>
+        </div>
+    );
+    if (isRoot) {
+        return list;
+    }
+    return (
+        <li className="element__item">{list}</li>
+    );
 };
 
 export default ArrayElement;
