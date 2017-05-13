@@ -3,6 +3,7 @@ import {
     SAVED_JSON_FETCH_IN_PROGRESS,
     SAVED_JSON_FETCH_SUCCESS,
     SAVED_JSON_FETCH_ERROR,
+    EDITED_JSON_LOAD,
 } from '../constants';
 
 export const fetchData = url => dispatch => {
@@ -14,6 +15,10 @@ export const fetchData = url => dispatch => {
                 const json = JSON.parse(body);
                 dispatch({
                     type: SAVED_JSON_FETCH_SUCCESS,
+                    payload: json,
+                });
+                dispatch({
+                    type: EDITED_JSON_LOAD,
                     payload: json,
                 });
             } catch(e) {

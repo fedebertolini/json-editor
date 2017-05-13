@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { isImmutable, isKeyed, isIndexed } from 'immutable';
-import { selectData } from '../../store/selectors/saved';
+import { selectData } from '../../store/selectors/edited';
 import ArrayElement from './ArrayElement';
 import ValueElement from './ValueElement';
 import ObjectElement from './ObjectElement';
