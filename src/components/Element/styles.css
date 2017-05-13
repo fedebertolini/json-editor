@@ -15,6 +15,11 @@
     font-weight: 600;
 }
 
+.element_item_array-size {
+    display: inline-block;
+    margin-left: 10px;
+}
+
 .element_item_value-separator {
     display: inline-block;
     text-align: center;

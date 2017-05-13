@@ -1,11 +1,8 @@
 import React from 'react';
 import Element from './Element';
 
-const getPropertyName = (path, arraySize) => {
-    if (path.length) {
-        return `${path[path.length - 1]} [${arraySize}]`;
-    }
-    return `array [${arraySize}]`;
+const getPropertyName = (path) => {
+    return path.length ? `${path[path.length - 1]}` : 'array';
 }
 
 const ArrayElement = ({ data, path }) => {
@@ -15,8 +12,13 @@ const ArrayElement = ({ data, path }) => {
 
     return (
         <li className="element_item">
-            <div className="element_item_prop-name">
-                {getPropertyName(path, data.size)}
+            <div>
+                <span className="element_item_prop-name">
+                    {getPropertyName(path)}
+                </span>
+                <span className="element_item_array-size">
+                    {`[${data.size}]`}
+                </span>
             </div>
             <ul className="element_list">
                 {elements}
