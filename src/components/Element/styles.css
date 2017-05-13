@@ -9,6 +9,10 @@
     padding: 5px 0;
 }
 
+.element_item_collapse {
+    cursor: pointer;
+}
+
 .element_item_prop-name {
     font-weight: 600;
 }
