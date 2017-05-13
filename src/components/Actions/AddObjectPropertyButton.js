@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { fromJS } from 'immutable';
 import { Icon } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { changeData } from  '../../store/actions/edited';
@@ -8,25 +9,28 @@ import ValueEditorModal from '../ValueEditorModal';
 const ModalTrigger = (props) => (
     <span
         onClick={props.onClick}
-        className="actions_button">
-        <Icon name='edit' />
+        className="actions_button actions_button_add">
+        <Icon name='add' />
     </span>
 );
 
-class EditButton extends Component {
+class AddObjectPropertyButton extends Component {
     componentWillMount() {
         this.state = { isOpen: false };
         this.toggle = this.toggle.bind(this);
-        this.confirmEdit = this.confirmEdit.bind(this);
+        this.confirmAdd = this.confirmAdd.bind(this);
     }
 
     toggle() {
         this.setState({ isOpen: !this.state.isOpen });
     }
 
-    confirmEdit(name, value) {
+    confirmAdd(name, value) {
         this.toggle();
-        this.props.changeData(this.props.path, value, name);
+
+        const { path, data } = this.props;
+        const newData = data.set(name, fromJS(value));
+        this.props.changeData(path, newData);
     }
 
     render() {
@@ -35,11 +39,11 @@ class EditButton extends Component {
         }
         return (
             <ValueEditorModal
-                title="Edit Property"
-                path={this.props.path}
-                data={this.props.data}
+                title="Add Property"
+                path={this.props.path.concat([''])}
+                data={null}
                 modalOpen={this.state.isOpen}
-                onConfirm={this.confirmEdit}
+                onConfirm={this.confirmAdd}
                 onCancel={this.toggle}
             />
         );
@@ -54,4 +58,4 @@ const mapDispatchToProps = {
     changeData,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditButton);
+export default connect(mapStateToProps, mapDispatchToProps)(AddObjectPropertyButton);

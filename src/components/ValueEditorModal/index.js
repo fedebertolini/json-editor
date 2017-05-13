@@ -32,7 +32,7 @@ class ValueEditorModal extends Component {
                 size='small'
                 open={this.props.modalOpen}
             >
-                <Header content='Edit Property' />
+                <Header content={this.props.title} />
                 <Modal.Content>
                     <Form>
                         <Form.Group inline>
