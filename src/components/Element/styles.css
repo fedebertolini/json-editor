@@ -1,9 +1,22 @@
-.element__list {
+.element_list {
     list-style-type: none;
     margin: 0;
     padding-left: 20px;
 }
 
-.element__item {
+.element_item {
     margin-left: 20px;
+    padding: 5px 0;
+}
+
+.element_item_prop-name {
+    display: inline-block;
+    min-width: 15px;
+    font-weight: 600;
+}
+
+.element_item_value-separator {
+    display: inline-block;
+    text-align: center;
+    min-width: 20px;
 }

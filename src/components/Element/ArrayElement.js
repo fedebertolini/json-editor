@@ -14,9 +14,11 @@ const ArrayElement = ({ data, path }) => {
     ));
 
     return (
-        <li className="element__item">
-            <div>{getPropertyName(path, data.size)}</div>
-            <ul className="element__list">
+        <li className="element_item">
+            <div className="element_item_prop-name">
+                {getPropertyName(path, data.size)}
+            </div>
+            <ul className="element_list">
                 {elements}
             </ul>
         </li>
