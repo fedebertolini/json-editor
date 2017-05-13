@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Icon, Modal, Button, Header } from 'semantic-ui-react';
+import { deleteData } from  '../../store/actions/edited';
 import { stringifyPath } from '../../utils/path';
 
 const ModalTrigger = ({ onClick }) => (
@@ -13,6 +15,7 @@ const ModalTrigger = ({ onClick }) => (
 const ModalContent = ({ path }) => (
     <Modal.Content>
         <p>Are you sure you want to delete this property?</p>
+        <strong>Path:</strong>
         <code>{stringifyPath(path)}</code>
     </Modal.Content>
 );
@@ -30,7 +33,7 @@ class DeleteButton extends Component {
 
     confirmDelete() {
         this.toggle();
-        this.props.onClickHandler();
+        this.props.deleteData(this.props.path);
     }
 
     render() {
@@ -52,4 +55,8 @@ class DeleteButton extends Component {
     }
 }
 
-export default DeleteButton;
+const mapDispatchToProps = {
+    deleteData,
+};
+
+export default connect(null, mapDispatchToProps)(DeleteButton);

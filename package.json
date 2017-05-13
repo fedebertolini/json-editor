@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "immutable": "v4.0.0-rc.2",
+    "lodash": "^4.17.4",
     "normalize.css": "^7.0.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",

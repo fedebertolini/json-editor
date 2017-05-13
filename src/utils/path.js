@@ -6,3 +6,10 @@ export const stringifyPath = (path = []) => {
         return `${reduction}.${value}`;
     }, '');
 };
+
+export const lastProperty = (path = []) => {
+    if (path.length) {
+        return path[path.length - 1];
+    }
+    return '';
+}

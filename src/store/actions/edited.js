@@ -9,10 +9,11 @@ export const loadData = (data) => ({
     payload: data,
 });
 
-export const changeData = (path, data) => ({
+export const changeData = (path, name, data) => ({
     type: EDITED_JSON_CHANGE,
     payload: {
         path,
+        name,
         data,
     },
 });
