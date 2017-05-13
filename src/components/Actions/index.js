@@ -1,25 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import EditButton from './EditButton';
 import DeleteButton from './DeleteButton';
 import { deleteData } from  '../../store/actions/edited';
 import './styles.css';
 
-class Actions extends Component {
+const Actions = ({ path, deleteData }) => {
+    const onDelete = () => deleteData(path);
 
-    onDelete() {
-        this.props.deleteData(this.props.path);
-    }
-
-    render() {
-        const { path } = this.props;
-        return (
-            <span className="actions_container">
-                <EditButton />
-                <DeleteButton onClickHandler={this.onDelete.bind(this)} path={path} />
-            </span>
-        );
-    }
+    return (
+        <span className="actions_container">
+            <EditButton />
+            <DeleteButton onClickHandler={onDelete} path={path} />
+        </span>
+    );
 }
 
 const mapDispatchToProps = {
