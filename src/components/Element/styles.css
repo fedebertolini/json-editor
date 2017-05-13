@@ -10,8 +10,6 @@
 }
 
 .element_item_prop-name {
-    display: inline-block;
-    min-width: 15px;
     font-weight: 600;
 }
 

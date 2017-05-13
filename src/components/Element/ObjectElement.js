@@ -17,6 +17,9 @@ const ObjectElement = ({ data, path }) => {
                 <span className="element_item_prop-name">
                     {getPropertyName(path)}
                 </span>
+                <span className="element_item_array-size">
+                    {`{${data.size}}`}
+                </span>
                 <Actions path={path} />
             </div>
             <ul className="element_list">
