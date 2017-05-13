@@ -1,12 +1,12 @@
 import React from 'react';
 import { Grid } from 'semantic-ui-react';
-import Element from '../Element';
+import RootElement from '../Element/RootElement';
 
 const Editor = ({ data }) => (
     <Grid padded centered stretched>
         <Grid.Row>
             <Grid.Column>
-                <Element path={[]} />
+                <RootElement path={[]} />
             </Grid.Column>
         </Grid.Row>
     </Grid>

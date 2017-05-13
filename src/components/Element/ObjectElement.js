@@ -1,5 +1,5 @@
 import React from 'react';
-import Element from '.';
+import Element from './Element';
 
 const getPropertyName = (path, propertyCount) => {
     if (path.length) {
@@ -9,24 +9,17 @@ const getPropertyName = (path, propertyCount) => {
 }
 
 const ObjectElement = ({ data, path }) => {
-    const isRoot = path.length === 0;
     const elements = data.keySeq().map(key => (
         <Element key={key} path={path.concat([key])} />
     ));
 
-    const list = (
-        <div>
+    return (
+        <li className="element__item">
             <div>{getPropertyName(path, data.size)}</div>
             <ul className="element__list">
                 {elements}
             </ul>
-        </div>
-    );
-    if (isRoot) {
-        return list;
-    }
-    return (
-        <li className="element__item">{list}</li>
+        </li>
     );
 };
 
