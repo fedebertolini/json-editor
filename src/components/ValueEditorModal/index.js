@@ -29,7 +29,6 @@ class ValueEditorModal extends Component {
         const path = this.props.path;
         return (
             <Modal
-                trigger={this.props.modalTrigger}
                 size='small'
                 open={this.props.modalOpen}
             >

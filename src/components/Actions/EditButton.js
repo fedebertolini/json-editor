@@ -30,11 +30,13 @@ class EditButton extends Component {
     }
 
     render() {
+        if (!this.state.isOpen) {
+            return <ModalTrigger onClick={this.toggle} />;
+        }
         return (
             <ValueEditorModal
                 path={this.props.path}
                 data={this.props.data}
-                modalTrigger={<ModalTrigger onClick={this.toggle} />}
                 modalOpen={this.state.isOpen}
                 onConfirm={this.confirmEdit}
                 onCancel={this.toggle}
