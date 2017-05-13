@@ -1,0 +1,12 @@
+.actions_container {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.actions_button {
+    cursor: pointer;
+}
+
+.actions_button_red {
+    color: red;
+}

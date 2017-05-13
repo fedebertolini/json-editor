@@ -1,4 +1,5 @@
 import React from 'react';
+import Actions from '../Actions';
 
 const ValueElement = ({ data, path }) => (
     <li className="element_item">
@@ -7,6 +8,8 @@ const ValueElement = ({ data, path }) => (
         </span>
         <span className="element_item_value-separator">:</span>
         <span>{data}</span>
+
+        <Actions path={path} allowEdit allowDelete />
     </li>
 );
 

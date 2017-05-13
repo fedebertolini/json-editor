@@ -1,4 +1,8 @@
-import { EDITED_JSON_LOAD, EDITED_JSON_CHANGE } from '../constants';
+import {
+    EDITED_JSON_LOAD,
+    EDITED_JSON_CHANGE,
+    EDITED_JSON_DELETE
+} from '../constants';
 
 export const loadData = (data) => ({
     type: EDITED_JSON_LOAD,
@@ -11,4 +15,9 @@ export const changeData = (path, data) => ({
         path,
         data,
     },
+});
+
+export const loadData = (path) => ({
+    type: EDITED_JSON_DELETE,
+    payload: path,
 });
