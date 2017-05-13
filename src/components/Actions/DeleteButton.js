@@ -7,7 +7,7 @@ import { stringifyPath } from '../../utils/path';
 const ModalTrigger = ({ onClick }) => (
     <span
         onClick={onClick}
-        className="actions_button actions_button_red">
+        className="actions_button actions_button_delete">
         <Icon name='delete' />
     </span>
 );

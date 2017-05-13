@@ -20,7 +20,7 @@ const ArrayElement = ({ data, path }) => {
                 <span className="element_item_array-size">
                     {`[${data.size}]`}
                 </span>
-                <Actions path={path} />
+                <Actions path={path} allowAddItem />
             </div>
             <ul className="element_list">
                 {elements}

@@ -26,7 +26,7 @@ class EditButton extends Component {
 
     confirmEdit(name, value) {
         this.toggle();
-        this.props.changeData(this.props.path, name, value);
+        this.props.changeData(this.props.path, value, name);
     }
 
     render() {

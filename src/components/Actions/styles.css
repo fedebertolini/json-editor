@@ -7,6 +7,10 @@
     cursor: pointer;
 }
 
-.actions_button_red {
+.actions_button_delete {
     color: red;
+}
+
+.actions_button_add {
+    color: green;
 }
