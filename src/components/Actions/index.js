@@ -12,10 +12,11 @@ class Actions extends Component {
     }
 
     render() {
+        const { path } = this.props;
         return (
             <span className="actions_container">
                 <EditButton />
-                <DeleteButton onClickHandler={this.onDelete.bind(this)} />
+                <DeleteButton onClickHandler={this.onDelete.bind(this)} path={path} />
             </span>
         );
     }
