@@ -1,5 +1,6 @@
 import React from 'react';
 import Element from './Element';
+import Actions from '../Actions';
 
 const getPropertyName = (path) => {
     return path.length ? `${path[path.length - 1]}` : 'array';
@@ -19,6 +20,7 @@ const ArrayElement = ({ data, path }) => {
                 <span className="element_item_array-size">
                     {`[${data.size}]`}
                 </span>
+                <Actions path={path} />
             </div>
             <ul className="element_list">
                 {elements}

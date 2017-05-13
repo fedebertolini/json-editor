@@ -17,7 +17,7 @@ export const changeData = (path, data) => ({
     },
 });
 
-export const loadData = (path) => ({
+export const deleteData = (path) => ({
     type: EDITED_JSON_DELETE,
     payload: path,
 });

@@ -18,13 +18,13 @@ export default (state = initialState(), action) => {
                 hasChanges: false,
             });
         case EDITED_JSON_CHANGE: {
-            let newState = state.set('hasChanges', true);
+            const newState = state.set('hasChanges', true);
             const path = ['data'].concat(action.payload.path);
-            newState = state.setIn(path, action.payload.data);
-            return newState;
+            return newState.setIn(path, action.payload.data);
         }
         case EDITED_JSON_DELETE:
-            return state.deleteIn(['data'].concat(action.payload));
+            const newState = state.set('hasChanges', true);
+            return newState.deleteIn(['data'].concat(action.payload));
         default:
             return state;
     }

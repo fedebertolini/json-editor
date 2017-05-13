@@ -9,7 +9,7 @@ const ValueElement = ({ data, path }) => (
         <span className="element_item_value-separator">:</span>
         <span>{data}</span>
 
-        <Actions path={path} allowEdit allowDelete />
+        <Actions path={path} />
     </li>
 );
 
