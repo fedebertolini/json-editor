@@ -21,14 +21,20 @@ class DeleteButton extends Component {
     componentWillMount() {
         this.state = { isOpen: false };
         this.toggle = this.toggle.bind(this);
+        this.confirmDelete = this.confirmDelete.bind(this);
     }
 
     toggle() {
         this.setState({ isOpen: !this.state.isOpen });
     }
 
+    confirmDelete() {
+        this.toggle();
+        this.props.onClickHandler();
+    }
+
     render() {
-        const { path, onClickHandler } = this.props;
+        const { path } = this.props;
         return (
             <Modal
                 trigger={<ModalTrigger onClick={this.toggle} />}
@@ -39,7 +45,7 @@ class DeleteButton extends Component {
                 <ModalContent path={path} />
                 <Modal.Actions>
                     <Button basic onClick={this.toggle}>No</Button>
-                    <Button color='red' onClick={onClickHandler}>Yes</Button>
+                    <Button color='red' onClick={this.confirmDelete}>Yes</Button>
                 </Modal.Actions>
             </Modal>
         );
