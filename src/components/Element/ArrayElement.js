@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Icon } from 'semantic-ui-react';
 import Element from './Element';
 import Actions from '../Actions';
+import withEmitter from '../EventEmitter/withEmitter';
 
 const getPropertyName = (path) => {
     return path.length ? `${path[path.length - 1]}` : 'array';
@@ -12,6 +13,9 @@ class ArrayElement extends Component {
     componentWillMount() {
         this.state = { collapse: true };
         this.toggleCollapse = this.toggleCollapse.bind(this);
+        this.collapseListener = this.props.emitter.addListener('collapse', (collapse) => {
+            this.setState({ collapse: collapse });
+        });
     }
 
     toggleCollapse() {
@@ -44,6 +48,10 @@ class ArrayElement extends Component {
             </li>
         );
     }
+
+    componentWillUnmount() {
+        this.collapseListener.remove();
+    }
 }
 
-export default ArrayElement;
+export default withEmitter(ArrayElement);

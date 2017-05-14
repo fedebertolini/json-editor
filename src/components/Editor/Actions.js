@@ -1,22 +1,27 @@
 import React from 'react';
-import { Button, Grid } from 'semantic-ui-react'
+import { Button, Grid } from 'semantic-ui-react';
+import withEmitter from '../EventEmitter/withEmitter';
 
-const Actions = () => (
+const emitCollapse = (emitter, collapse) => () => emitter.emit('collapse', collapse);
+
+const Actions = ({ emitter }) => (
     <Grid columns={2} relaxed>
         <Grid.Column>
             <Button
                 content='Collapse All'
                 icon='minus'
                 labelPosition='left'
+                onClick={emitCollapse(emitter, true)}
                 basic
-                small
+                size="small"
             />
             <Button
                 content='Expand All'
                 icon='plus'
                 labelPosition='left'
+                onClick={emitCollapse(emitter, false)}
                 basic
-                small
+                size="small"
             />
         </Grid.Column>
         <Grid.Column textAlign="right">
@@ -25,10 +30,10 @@ const Actions = () => (
                 icon='delete'
                 labelPosition='left'
                 color="red"
-                small
+                size="small"
             />
         </Grid.Column>
     </Grid>
 );
 
-export default Actions;
+export default withEmitter(Actions);
