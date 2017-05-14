@@ -8,8 +8,16 @@
 }
 
 .element_item {
-    margin-left: 20px;
-    padding: 5px 0;
+    margin: 2px 0 2px 20px;
+}
+
+.element_item_title {
+    display: inline-block;
+    padding: 5px;
+}
+
+.element_item_title.highlight {
+    background-color: #fcf8e3;
 }
 
 .element_item_collapse {

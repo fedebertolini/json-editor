@@ -23,7 +23,7 @@ class ArrayElement extends Component {
     }
 
     render() {
-        const { data, path } = this.props;
+        const { data, path, hasDataChanged } = this.props;
         const elements = data.toArray().map((value, index) => (
             <Element key={index} path={path.concat([index])} />
         ));
@@ -31,14 +31,16 @@ class ArrayElement extends Component {
         return (
             <li className="element_item">
                 <div>
-                    <span onClick={this.toggleCollapse} className="element_item_collapse">
-                        <Icon name={`caret ${this.state.collapse ? 'right' : 'down'}`} />
-                    </span>
-                    <span className="element_item_prop-name">
-                        {getPropertyName(path)}
-                    </span>
-                    <span className="element_item_array-size">
-                        {`[${data.size}]`}
+                    <span className={`element_item_title ${hasDataChanged ? 'highlight' : ''}`}>
+                        <span onClick={this.toggleCollapse} className="element_item_collapse">
+                            <Icon name={`caret ${this.state.collapse ? 'right' : 'down'}`} />
+                        </span>
+                        <span className="element_item_prop-name">
+                            {getPropertyName(path)}
+                        </span>
+                        <span className="element_item_array-size">
+                            {`[${data.size}]`}
+                        </span>
                     </span>
                     <Actions path={path} allowAddItem />
                 </div>
