@@ -3,6 +3,7 @@ import {
     EDITED_JSON_LOAD,
     EDITED_JSON_CHANGE,
     EDITED_JSON_DELETE,
+    JSON_CLEAR,
 } from '../constants';
 
 import { lastProperty } from '../../utils/path';
@@ -36,6 +37,8 @@ export default (state = initialState(), action) => {
         case EDITED_JSON_DELETE:
             const newState = state.set('hasChanges', true);
             return newState.deleteIn(dataPath(action.payload));
+        case JSON_CLEAR:
+            return initialState();
         default:
             return state;
     }

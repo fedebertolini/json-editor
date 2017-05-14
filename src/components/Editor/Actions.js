@@ -1,17 +1,19 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Button, Grid } from 'semantic-ui-react';
 import withEmitter from '../EventEmitter/withEmitter';
+import { clearData } from '../../store/actions';
 
 const emitCollapse = (emitter, collapse) => () => emitter.emit('collapse', collapse);
 
-const Actions = ({ emitter }) => (
+const Actions = (props) => (
     <Grid columns={2} relaxed>
         <Grid.Column>
             <Button
                 content='Collapse All'
                 icon='minus'
                 labelPosition='left'
-                onClick={emitCollapse(emitter, true)}
+                onClick={emitCollapse(props.emitter, true)}
                 basic
                 size="small"
             />
@@ -19,7 +21,7 @@ const Actions = ({ emitter }) => (
                 content='Expand All'
                 icon='plus'
                 labelPosition='left'
-                onClick={emitCollapse(emitter, false)}
+                onClick={emitCollapse(props.emitter, false)}
                 basic
                 size="small"
             />
@@ -29,6 +31,7 @@ const Actions = ({ emitter }) => (
                 content='Clear Data'
                 icon='delete'
                 labelPosition='left'
+                onClick={props.clearData}
                 color="red"
                 size="small"
             />
@@ -36,4 +39,8 @@ const Actions = ({ emitter }) => (
     </Grid>
 );
 
-export default withEmitter(Actions);
+const mapDispatchToProps = {
+    clearData,
+};
+
+export default connect(null, mapDispatchToProps)(withEmitter(Actions));

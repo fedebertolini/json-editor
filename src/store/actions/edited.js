@@ -1,7 +1,7 @@
 import {
     EDITED_JSON_LOAD,
     EDITED_JSON_CHANGE,
-    EDITED_JSON_DELETE
+    EDITED_JSON_DELETE,
 } from '../constants';
 
 import { lastProperty } from '../../utils/path';

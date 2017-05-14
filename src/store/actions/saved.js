@@ -3,7 +3,7 @@ import {
     SAVED_JSON_FETCH_IN_PROGRESS,
     SAVED_JSON_FETCH_SUCCESS,
     SAVED_JSON_FETCH_ERROR,
-    EDITED_JSON_LOAD,
+    EDITED_JSON_LOAD
 } from '../constants';
 
 export const fetchData = url => dispatch => {

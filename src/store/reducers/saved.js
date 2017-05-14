@@ -3,6 +3,7 @@ import {
     SAVED_JSON_FETCH_IN_PROGRESS,
     SAVED_JSON_FETCH_SUCCESS,
     SAVED_JSON_FETCH_ERROR,
+    JSON_CLEAR,
 } from '../constants';
 
 const initialState = () => fromJS({
@@ -31,6 +32,8 @@ export default (state = initialState(), action) => {
                 error: action.error,
                 inProgress: false,
             });
+        case JSON_CLEAR:
+            return initialState();
         default:
             return state;
     }
