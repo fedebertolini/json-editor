@@ -1,13 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Button, Grid } from 'semantic-ui-react';
+import { Button, Grid, Icon } from 'semantic-ui-react';
 import withEmitter from '../EventEmitter/withEmitter';
 import { clearData } from '../../store/actions';
+import { canUndo, canRedo } from '../../store/selectors/edited';
 
 const emitCollapse = (emitter, collapse) => () => emitter.emit('collapse', collapse);
 
 const Actions = (props) => (
-    <Grid columns={2} relaxed>
+    <Grid columns={3} relaxed>
         <Grid.Column>
             <Button
                 content='Collapse All'
@@ -26,6 +27,22 @@ const Actions = (props) => (
                 size="small"
             />
         </Grid.Column>
+        <Grid.Column>
+            <Button
+                content='Undo'
+                icon='undo'
+                labelPosition='left'
+                disabled={!props.canUndo}
+                size="small"
+            />
+            <Button
+                content='Redo'
+                icon={<Icon name="undo" flipped="horizontally" />}
+                labelPosition='left'
+                disabled={!props.canRedo}
+                size="small"
+            />
+        </Grid.Column>
         <Grid.Column textAlign="right">
             <Button
                 content='Clear Data'
@@ -39,8 +56,13 @@ const Actions = (props) => (
     </Grid>
 );
 
+const mapStateToProps = state => ({
+    canUndo: canUndo(state),
+    canRedo: canRedo(state),
+});
+
 const mapDispatchToProps = {
     clearData,
 };
 
-export default connect(null, mapDispatchToProps)(withEmitter(Actions));
+export default connect(mapStateToProps, mapDispatchToProps)(withEmitter(Actions));
