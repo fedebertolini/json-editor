@@ -11,7 +11,7 @@ const getPropertyName = (path) => {
 class ObjectElement extends Component {
 
     componentWillMount() {
-        this.state = { collapse: true };
+        this.state = { collapse: !this.props.defaultExpanded };
         this.toggleCollapse = this.toggleCollapse.bind(this);
         this.collapseListener = this.props.emitter.addListener('collapse', (collapse) => {
             this.setState({ collapse: collapse });

@@ -3,7 +3,7 @@ import Element from './Element';
 
 const RootElement = () => (
     <ul className="element_list">
-        <Element path={[]} />
+        <Element path={[]} defaultExpanded />
     </ul>
 );
 

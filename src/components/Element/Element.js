@@ -7,12 +7,12 @@ import ValueElement from './ValueElement';
 import ObjectElement from './ObjectElement';
 import './styles.css';
 
-const Element = ({ path, data }) => {
+const Element = ({ path, data, defaultExpanded }) => {
     if (isImmutable(data)) {
         if (isKeyed(data)) {
-            return <ObjectElement path={path} data={data} />;
+            return <ObjectElement path={path} data={data} defaultExpanded={defaultExpanded} />;
         } else if (isIndexed(data)) {
-            return <ArrayElement path={path} data={data} />;
+            return <ArrayElement path={path} data={data} defaultExpanded={defaultExpanded} />;
         }
         throw new Error(`Invalid immutable type: ${JSON.stringify(path)}`)
     }
