@@ -1,1 +1,1 @@
-export const selectData = (state, path) => state.getIn(['edited'].concat(path));
+export const selectData = (state, path) => state.get('edited').present.getIn(path);
