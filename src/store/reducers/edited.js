@@ -1,4 +1,4 @@
-import { fromJS } from 'immutable';
+import { fromJS, Map } from 'immutable';
 import {
     EDITED_JSON_LOAD,
     EDITED_JSON_CHANGE,
@@ -8,35 +8,24 @@ import {
 
 import { lastProperty } from '../../utils/path';
 
-const initialState = () => fromJS({
-    data: {},
-    hasChanges: false,
-});
-
-const dataPath = (path) => ['data'].concat(path);
+const initialState = () => new Map();
 
 export default (state = initialState(), action) => {
     switch(action.type) {
         case EDITED_JSON_LOAD:
-            return fromJS({
-                data: action.payload,
-                hasChanges: false,
-            });
+            return fromJS(action.payload);
         case EDITED_JSON_CHANGE: {
             const { path, name, data } = action.payload;
-            let newState = state.set('hasChanges', true);
             const immutableData = fromJS(data);
 
             if (lastProperty(path) !== name) {
-                newState = newState.deleteIn(dataPath(path));
                 const newPath = path.slice(0, path.length - 1).concat(name);
-                return newState.setIn(dataPath(newPath), immutableData);
+                return state.deleteIn(path).setIn(newPath, immutableData);
             }
-            return newState.setIn(dataPath(path), immutableData);
+            return state.setIn(path, immutableData);
         }
         case EDITED_JSON_DELETE:
-            const newState = state.set('hasChanges', true);
-            return newState.deleteIn(dataPath(action.payload));
+            return state.deleteIn(action.payload);
         case JSON_CLEAR:
             return initialState();
         default:
