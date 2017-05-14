@@ -30,11 +30,11 @@ class ArrayElement extends Component {
 
         return (
             <li className="element_item">
-                <div>
+                <div className="element_item_title_container">
+                    <span onClick={this.toggleCollapse} className="element_item_collapse">
+                        <Icon name={`caret ${this.state.collapse ? 'right' : 'down'}`} />
+                    </span>
                     <span className={`element_item_title ${hasDataChanged ? 'highlight' : ''}`}>
-                        <span onClick={this.toggleCollapse} className="element_item_collapse">
-                            <Icon name={`caret ${this.state.collapse ? 'right' : 'down'}`} />
-                        </span>
                         <span className="element_item_prop-name">
                             {getPropertyName(path)}
                         </span>
