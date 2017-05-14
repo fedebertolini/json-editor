@@ -42,8 +42,8 @@ class ObjectElement extends Component {
                     </span>
                     <Actions path={path} allowAddProperty />
                 </div>
-                <ul className="element_list">
-                    {this.state.collapse || elements}
+                <ul className={`element_list ${this.state.collapse ? 'hide' : ''}`}>
+                    {elements}
                 </ul>
             </li>
         );

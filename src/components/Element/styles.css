@@ -3,6 +3,9 @@
     margin: 0;
     padding-left: 20px;
 }
+.element_list.hide {
+    display: none;
+}
 
 .element_item {
     margin-left: 20px;

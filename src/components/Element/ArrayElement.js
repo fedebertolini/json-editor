@@ -42,8 +42,8 @@ class ArrayElement extends Component {
                     </span>
                     <Actions path={path} allowAddItem />
                 </div>
-                <ul className="element_list">
-                    {this.state.collapse || elements}
+                <ul className={`element_list ${this.state.collapse ? 'hide' : ''}`}>
+                    {elements}
                 </ul>
             </li>
         );
