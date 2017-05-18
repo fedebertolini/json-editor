@@ -26,7 +26,6 @@ class UrlCard extends Component {
 
     render() {
         const { inProgress, error } = this.props;
-        console.log(error);
         return (
             <Card fluid>
                 <Card.Content className="json-loader__card-title">

@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { ActionCreators } from 'redux-undo';
 import { Button, Grid, Icon } from 'semantic-ui-react';
 import withEmitter from '../EventEmitter/withEmitter';
 import { clearData } from '../../store/actions';
@@ -33,6 +34,7 @@ const Actions = (props) => (
                 icon='undo'
                 labelPosition='left'
                 disabled={!props.canUndo}
+                onClick={props.undo}
                 size="small"
             />
             <Button
@@ -40,6 +42,7 @@ const Actions = (props) => (
                 icon={<Icon name="undo" flipped="horizontally" />}
                 labelPosition='left'
                 disabled={!props.canRedo}
+                onClick={props.redo}
                 size="small"
             />
         </Grid.Column>
@@ -63,6 +66,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
     clearData,
+    undo: ActionCreators.undo,
+    redo: ActionCreators.redo,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(withEmitter(Actions));
