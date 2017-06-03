@@ -5,6 +5,7 @@
   "dependencies": {
     "fbemitter": "^2.1.1",
     "immutable": "v4.0.0-rc.2",
+    "jsondiffpatch": "^0.2.4",
     "lodash": "^4.17.4",
     "normalize.css": "^7.0.0",
     "prop-types": "^15.5.10",
