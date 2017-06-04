@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Card, Form, Message } from 'semantic-ui-react'
+import { Card, Form, Message } from 'semantic-ui-react';
 import { loadData } from '../../store/actions/saved';
 
 class JsonCard extends Component {

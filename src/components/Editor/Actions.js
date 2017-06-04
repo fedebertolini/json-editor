@@ -4,6 +4,7 @@ import { ActionCreators } from 'redux-undo';
 import { Button, Grid, Icon } from 'semantic-ui-react';
 import withEmitter from '../EventEmitter/withEmitter';
 import { clearData } from '../../store/actions';
+import { openModal } from '../../store/actions/viewModal';
 import { canUndo, canRedo } from '../../store/selectors/edited';
 
 const emitCollapse = (emitter, collapse) => () => emitter.emit('collapse', collapse);
@@ -55,6 +56,14 @@ const Actions = (props) => (
                 color="red"
                 size="small"
             />
+            <Button
+                content='Save Data'
+                icon='save'
+                labelPosition='left'
+                onClick={props.openModal}
+                color="green"
+                size="small"
+            />
         </Grid.Column>
     </Grid>
 );
@@ -66,6 +75,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
     clearData,
+    openModal,
     undo: ActionCreators.undo,
     redo: ActionCreators.redo,
 };

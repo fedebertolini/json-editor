@@ -2,6 +2,7 @@ import { combineReducers } from 'redux-immutable';
 import undoable, { includeAction } from 'redux-undo';
 import edited from './edited';
 import saved from './saved';
+import viewModal from './viewModal';
 import { EDITED_JSON_CHANGE, EDITED_JSON_DELETE } from '../constants';
 
 const undoableConfig = {
@@ -11,5 +12,6 @@ const undoableConfig = {
 
 export default combineReducers({
     edited: undoable(edited, undoableConfig),
-    saved
+    saved,
+    viewModal,
 });
