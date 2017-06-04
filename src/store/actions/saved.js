@@ -35,3 +35,14 @@ export const fetchData = url => dispatch => {
         }
     });
 };
+
+export const loadData = json => dispatch => {
+    dispatch({
+        type: SAVED_JSON_FETCH_SUCCESS,
+        payload: json,
+    });
+    dispatch({
+        type: EDITED_JSON_LOAD,
+        payload: json,
+    });
+}

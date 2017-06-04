@@ -5,7 +5,7 @@ import Actions from '../Actions';
 import withEmitter from '../EventEmitter/withEmitter';
 
 const getPropertyName = (path) => {
-    return path.length ? `${path[path.length - 1]}` : 'array';
+    return path.length ? `${path[path.length - 1]}` : 'object';
 }
 
 class ObjectElement extends Component {
