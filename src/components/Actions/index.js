@@ -5,12 +5,12 @@ import AddArrayItemButton from './AddArrayItemButton';
 import AddObjectPropertyButton from './AddObjectPropertyButton';
 import './styles.css';
 
-const Actions = ({ path, allowAddItem, allowAddProperty }) => (
+const Actions = ({ path, allowAddItem, allowAddProperty, allowDelete, allowEdit }) => (
     <span className="actions_container">
-        <EditButton path={path} />
+        {allowEdit && <EditButton path={path} />}
         {allowAddItem && <AddArrayItemButton path={path} />}
         {allowAddProperty && <AddObjectPropertyButton path={path} />}
-        <DeleteButton path={path} />
+        {allowDelete && <DeleteButton path={path} />}
     </span>
 );
 

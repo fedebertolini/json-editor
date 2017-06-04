@@ -13,7 +13,7 @@ const ValueElement = ({ data, path, hasDataChanged }) => (
             <span>{printValue(data)}</span>
         </span>
 
-        <Actions path={path} />
+        <Actions path={path} allowDelete allowEdit />
     </li>
 );
 

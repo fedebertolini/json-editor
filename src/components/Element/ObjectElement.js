@@ -42,7 +42,12 @@ class ObjectElement extends Component {
                             {`{${data.size}}`}
                         </span>
                     </span>
-                    <Actions path={path} allowAddProperty />
+                    <Actions
+                        path={path}
+                        allowAddProperty
+                        allowDelete={!!path.length}
+                        allowEdit={!!path.length}
+                    />
                 </div>
                 <ul className={`element_list ${this.state.collapse ? 'hide' : ''}`}>
                     {elements}

@@ -42,7 +42,12 @@ class ArrayElement extends Component {
                             {`[${data.size}]`}
                         </span>
                     </span>
-                    <Actions path={path} allowAddItem />
+                    <Actions
+                        path={path}
+                        allowAddItem
+                        allowDelete={!!path.length}
+                        allowEdit={!!path.length}
+                    />
                 </div>
                 <ul className={`element_list ${this.state.collapse ? 'hide' : ''}`}>
                     {elements}
