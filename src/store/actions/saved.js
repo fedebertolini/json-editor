@@ -1,4 +1,4 @@
-import request from 'request';
+import { get } from 'axios';
 import {
     SAVED_JSON_FETCH_IN_PROGRESS,
     SAVED_JSON_FETCH_SUCCESS,
@@ -14,30 +14,28 @@ export const fetchData = url => dispatch => {
         requestUrl = `${document.location.protocol}//${document.location.host}/api/${encodeURIComponent(url)}`;
     }
 
-    request(requestUrl, (error, response, body) => {
-        if (response && response.statusCode === 200) {
-            try {
-                const json = JSON.parse(body);
-                dispatch({
-                    type: SAVED_JSON_FETCH_SUCCESS,
-                    payload: json,
-                });
-                dispatch({
-                    type: EDITED_JSON_LOAD,
-                    payload: json,
-                });
-            } catch(e) {
-                dispatch({
-                    type: SAVED_JSON_FETCH_ERROR,
-                    error: e.message,
-                });
-            }
-        } else {
+    get(requestUrl).then((response) => {
+        try {
+            dispatch({
+                type: SAVED_JSON_FETCH_SUCCESS,
+                payload: response.data,
+            });
+            dispatch({
+                type: EDITED_JSON_LOAD,
+                payload: response.data,
+            });
+        } catch(e) {
             dispatch({
                 type: SAVED_JSON_FETCH_ERROR,
-                error: (error && error.message) || `Unexpected response code: ${response.statusCode}`,
+                error: e.message,
             });
         }
+    })
+    .catch((error) => {
+        dispatch({
+            type: SAVED_JSON_FETCH_ERROR,
+            error: `Request error: ${error.message}`,
+        });
     });
 };
 

@@ -12,6 +12,7 @@
     "start-client": "react-scripts start"
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "body-parser": "^1.17.2",
     "cookie-parser": "^1.4.3",
     "copy-to-clipboard": "^3.0.6",
@@ -39,11 +40,11 @@
     "react-scripts": "^1.0.10"
   },
   "now": {
-      "alias": "json-editor",
-      "files": [
-        "build",
-        "public",
-        "server"
-      ]
+    "alias": "json-editor",
+    "files": [
+      "build",
+      "public",
+      "server"
+    ]
   }
 }
