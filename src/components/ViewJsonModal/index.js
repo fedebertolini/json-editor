@@ -4,6 +4,7 @@ import { Modal, Button, Header, Form } from 'semantic-ui-react';
 import { isModalOpen } from '../../store/selectors/viewModal';
 import { selectData } from '../../store/selectors/edited';
 import { closeModal } from '../../store/actions/viewModal';
+import './styles.css';
 
 const ViewJsonModal = (props) => (
     <Modal
@@ -11,7 +12,7 @@ const ViewJsonModal = (props) => (
         open={props.isModalOpen}
     >
         <Header content="JSON Data" />
-        <Modal.Content>
+        <Modal.Content className="view-json-modal_content">
             <Form size="large">
                 <Form.Group>
                     <Form.TextArea
