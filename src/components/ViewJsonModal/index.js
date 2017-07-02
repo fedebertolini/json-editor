@@ -5,6 +5,7 @@ import copyToClipboard from 'copy-to-clipboard';
 import { isModalOpen } from '../../store/selectors/viewModal';
 import { selectData } from '../../store/selectors/edited';
 import { closeModal } from '../../store/actions/viewModal';
+import DownloadFileButton from './DownloadFileButton';
 import './styles.css';
 
 const ViewJsonModal = (props) => (
@@ -26,7 +27,14 @@ const ViewJsonModal = (props) => (
             </Form>
         </Modal.Content>
         <Modal.Actions>
-            <Button color="green" onClick={() => copyToClipboard(props.data)}>Copy to Clipboard</Button>
+            <Button
+                icon='paste'
+                color='green'
+                basic
+                content='Copy to Clipboard'
+                onClick={() => copyToClipboard(props.data)}
+            />
+            <DownloadFileButton fileContent={props.data} />
             <Button basic onClick={props.closeModal}>Close</Button>
         </Modal.Actions>
     </Modal>
