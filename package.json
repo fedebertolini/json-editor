@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "copy-to-clipboard": "^3.0.6",
     "fbemitter": "^2.1.1",
     "immutable": "beta",
     "lodash": "^4.17.4",
@@ -20,7 +21,7 @@
     "semantic-ui-react": "^0.70.0"
   },
   "devDependencies": {
-    "react-scripts": "0.9.5"
+    "react-scripts": "^1.0.10"
   },
   "scripts": {
     "start": "react-scripts start",

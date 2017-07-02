@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Modal, Button, Header, Form } from 'semantic-ui-react';
+import copyToClipboard from 'copy-to-clipboard';
 import { isModalOpen } from '../../store/selectors/viewModal';
 import { selectData } from '../../store/selectors/edited';
 import { closeModal } from '../../store/actions/viewModal';
@@ -19,12 +20,13 @@ const ViewJsonModal = (props) => (
                         width={16}
                         disabled
                         autoHeight
-                        defaultValue={JSON.stringify(props.data, null, 2)}
+                        defaultValue={props.data}
                     />
                 </Form.Group>
             </Form>
         </Modal.Content>
         <Modal.Actions>
+            <Button color="green" onClick={() => copyToClipboard(props.data)}>Copy to Clipboard</Button>
             <Button basic onClick={props.closeModal}>Close</Button>
         </Modal.Actions>
     </Modal>
@@ -32,7 +34,7 @@ const ViewJsonModal = (props) => (
 
 const mapStateToProps = state => ({
     isModalOpen: isModalOpen(state),
-    data: selectData(state, []).toJS(),
+    data: JSON.stringify(selectData(state, []).toJS(), null, 2),
 });
 
 const mapDispatchToProps = {
