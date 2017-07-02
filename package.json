@@ -5,9 +5,45 @@
   "author": "Federico Bertolini <fb@hellofresh.com>",
   "license": "MIT",
   "scripts": {
-      "install-dep": "cd client && yarn && cd ../server && yarn",
-      "build-client": "cd client && yarn build",
-      "start": "cd server && node bin/www",
-      "start-client": "cd client && yarn start"
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "build-client": "react-scripts build",
+    "start": "cd server && node bin/www",
+    "start-client": "react-scripts start"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
+    "copy-to-clipboard": "^3.0.6",
+    "debug": "^2.6.8",
+    "express": "^4.15.3",
+    "fbemitter": "^2.1.1",
+    "immutable": "4.0.0-rc.2",
+    "jade": "^1.11.0",
+    "lodash": "^4.17.4",
+    "morgan": "^1.8.2",
+    "normalize.css": "^7.0.0",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.5",
+    "redux": "^3.7.1",
+    "redux-immutable": "^4.0.0",
+    "redux-thunk": "^2.2.0",
+    "redux-undo": "beta",
+    "request": "^2.81.0",
+    "semantic-ui-css": "^2.2.10",
+    "semantic-ui-react": "^0.70.0"
+  },
+  "devDependencies": {
+    "react-scripts": "^1.0.10"
+  },
+  "now": {
+      "alias": "json-editor",
+      "files": [
+        "build",
+        "public",
+        "server"
+      ]
   }
 }
