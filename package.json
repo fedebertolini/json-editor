@@ -1,32 +1,13 @@
 {
   "name": "json-editor",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "copy-to-clipboard": "^3.0.6",
-    "fbemitter": "^2.1.1",
-    "immutable": "beta",
-    "lodash": "^4.17.4",
-    "normalize.css": "^7.0.0",
-    "prop-types": "^15.5.10",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "react-redux": "^5.0.5",
-    "redux": "^3.7.1",
-    "redux-immutable": "^4.0.0",
-    "redux-thunk": "^2.2.0",
-    "redux-undo": "beta",
-    "request": "^2.81.0",
-    "semantic-ui-css": "^2.2.10",
-    "semantic-ui-react": "^0.70.0"
-  },
-  "devDependencies": {
-    "react-scripts": "^1.0.10"
-  },
+  "version": "1.0.0",
+  "repository": "git@github.com:fedebertolini/json-editor.git",
+  "author": "Federico Bertolini <fb@hellofresh.com>",
+  "license": "MIT",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+      "install-dep": "cd client && yarn && cd ../server && yarn",
+      "build-client": "cd client && yarn build",
+      "start": "cd server && node bin/www",
+      "start-client": "cd client && yarn start"
   }
 }

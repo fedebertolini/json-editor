@@ -1,0 +1,9 @@
+.editor_actions {
+    flex-grow: 0 !important;
+}
+
+.editor_content {
+    height: 80vh;
+    max-height: 80vh;
+    overflow-y: scroll;
+}

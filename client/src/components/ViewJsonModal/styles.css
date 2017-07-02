@@ -1,0 +1,4 @@
+.view-json-modal_content {
+    max-height: 75vh;
+    overflow: scroll;
+}
