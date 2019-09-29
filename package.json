@@ -7,7 +7,7 @@
   "scripts": {
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "build-client": "react-scripts build",
+    "build": "react-scripts build",
     "start": "cd server && node bin/www",
     "start-client": "react-scripts start"
   },
